@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export const Card = () => (
+export const Characters  = () => (
 	
 		<div className="card m-5" style={{width: ("18rem")}}>
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxtZospptSYBpke2BC65KwnQ06FP-WYiqgCg&usqp=CAU" className="card-img-top" alt="..."/>

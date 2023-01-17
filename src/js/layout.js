@@ -8,7 +8,7 @@ import { Single } from "./views/single.jsx";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-import { CardPadre } from "./component/cardPadre.jsx";
+import {CharactersDetail } from "./component/charactersDetail.jsx"
 
 
 //create your first component
@@ -22,7 +22,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
-					<CardPadre/>
+					<CharactersDetail/>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Card } from "./card.jsx";
 
-export const CardPadre = () => (
+export const charactersDetail = () => (
 	
 		<div>
-            <Card/>
+            <Characters/>
         </div>
 	
 );
