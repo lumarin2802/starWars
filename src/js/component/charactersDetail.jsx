@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Card } from "./card.jsx";
+import { Characters } from "./characters.jsx";
 
-export const charactersDetail = () => (
+export const CharactersDetail = () => (
 	
 		<div>
             <Characters/>

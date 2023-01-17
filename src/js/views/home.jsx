@@ -1,11 +1,33 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "../../styles/home.css";
-import { NavBar } from "../component/navbar"
 
-export const Home = () => (
+import  {Characters}  from "../component/characters.jsx";
+
+
+export const Home = () => {
 	
-	
-	<div className="text-center mt-5">
-		<p>personajes</p>
-	</div>
-);
+	const [characters, setCharacters] = useState([]);
+
+
+	function getCharacters() {
+		fetch("https://www.swapi.tech/api/people/")
+		.then((response) => response.json())
+		.then((data) => console.log(data.results))
+		.then((data) => setCharacters(data.result || data.results));
+	}
+
+
+	useEffect(() => {
+	getCharacters()
+	}, [])
+
+	return (
+		<div>
+			<h2>Characters</h2>
+			{characters.map((item, index) => {
+				return <Characters key={index} name={item.name} id={item.uid}/>
+			}
+			)}
+		</div>
+	)
+};
