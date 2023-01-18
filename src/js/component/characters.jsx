@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Characters  = ({name, id}) => {
 	return (
-		<div className="card m-1 bg-black text-white " style={{width: ("18rem")}}>
+		<div className="card m-1 bg-dark text-white " style={{width: ("18rem")}}>
   <img src={"https://starwars-visualguide.com/assets/img/characters/"+(id)+".jpg"} className="card-img-top" alt="..."/>
   <div className="card-body">
     <div className="title">
