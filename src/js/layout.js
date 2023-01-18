@@ -8,7 +8,6 @@ import { Single } from "./views/single.jsx";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
-import {CharactersDetail } from "./component/charactersDetail.jsx"
 
 
 //create your first component
@@ -21,8 +20,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
-					<CharactersDetail/>
+					<Navbar />	
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
