@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-export const Planets  = ({name, id}) => {
+export const Vehicles  = ({name, id}) => {
 	return (
 		<div className="card m-1 bg-dark text-white " style={{width: ("18rem")}}>
-  <img src={"https://starwars-visualguide.com/assets/img/planets/"+(id)+".jpg"} className="card-img-top" alt="..."/>
+  <img src={"https://starwars-visualguide.com/assets/img/vehicles/"+(id)+".jpg"} className="card-img-top" alt="..."/>
   <div className="card-body">
     <div className="title">
     <h5 className="card-title">{name}</h5>
@@ -15,10 +15,11 @@ export const Planets  = ({name, id}) => {
     </div>
     <div className="footer mt-5">
     <Link to={"/single/"+id} className="btn btn-outline-warning">Learn more!</Link>
-    <button className="btn btn-outline-warning float-end">💛</button>    
-    
+    <button className="btn btn-outline-warning float-end">💛</button>  
+   
+  </div>
 </div>
 </div>
-</div>
+
 	)
 };

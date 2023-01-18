@@ -14,8 +14,8 @@ export const Characters  = ({name, id}) => {
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
     <div className="footer mt-5">
-    <Link to={"/single/"+id} className="btn btn-outline-warning">Learn more!</Link>
-    {/* <button className="">💛</button> */}
+    <Link to={"/charactersDetail/"+id} className="btn btn-outline-warning">Learn more!</Link>
+    <button className="btn btn-outline-warning float-end">💛</button> 
   </div>
 </div>
 </div>
