@@ -15,6 +15,7 @@ export const Single = (props) => {
       .then((response) => response.json())
       .then((data) => console.log(data.results))
       .then((data) => setCharacters(data.results.properties));
+      
   }
 
   function getPlanets() {
@@ -22,6 +23,7 @@ export const Single = (props) => {
       .then((res) => res.json())
       //.then((data) => console.log(data.results));
 	  .then((data) => setPlanets(data.results.properties));
+    
     
   }
   function getVehicles() {
@@ -45,7 +47,10 @@ export const Single = (props) => {
       </h1>
       <div>
         <h3>{characters.name}</h3>
-      </div>
+        <p>{characters.gender}</p>
+        <p>{characters.hair}</p>
+        <p>{characters.eyes}</p>
+      </div> 
       <div>
         <h3>{planets.name}</h3>
       </div>

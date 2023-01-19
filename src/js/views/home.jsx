@@ -45,7 +45,7 @@ export const Home = () => {
       <h2 style={{ color: "yellow" }}>Characters</h2>
       <div className="d-flex">
         {characters.map((item, index) => {
-          return <Characters key={index} name={item.name} id={item.uid} />;
+          return <Characters key={index} name={item.name} id={item.uid} gender={item.gender} hair={item.hair_color} eyes={item.eye_color} />;
         })}
       </div>
 
@@ -53,7 +53,7 @@ export const Home = () => {
       <h2 style={{ color: "yellow" }}>Planets</h2>
    
         {planets.map((item, index) => {
-          return <Planets key={index} name={item.name} id={item.uid} />;
+          return <Planets key={index} name={item.name} id={item.uid} gender={item.gender} hair={item.hair_color} eyes={item.eye_color}/>;
           
         })}
      </div>
