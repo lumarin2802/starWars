@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import starImage from "../../img/starwars.png";
 
 export const Navbar = () => {
+  const {store}=useContext(Context);
+  console.log(store.favorites);
+
+
 	return (
 		
 			<nav className="navbar navbar-dark bg-black p-2">
