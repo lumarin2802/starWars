@@ -6,59 +6,49 @@ import { Context } from "../store/appContext";
 export const PlanetDetail = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  const [detailPlanet, setDetailPlanet] = useState({});
+
   
 
-  function getDetailPlanet() {
-    fetch("https://www.swapi.tech/api/planets/" + params.theid)
-      .then((response) => response.json())
-   
-      .then((data) => setDetailPlanet(data.result));   
-  }
-
+  
  
   useEffect(() => {
-    getDetailPlanet()
+    actions.getDetailPlanet(params.theid)
     
 
   }, []);
 
   return (
     
-    <div className="jumbotron d-flex flex-row">
-       <img
+    <div className="bg-dark">
+    <br />
+    
+<h1 className="text-warning">{store.detailPlanet?.properties?.name}</h1>
+<div className="card mb-3" style={{width: "720px", margin: "20px"}}>
+    <div className="row g-0">
+      <div className="col-md-4 align-self-center" style={{padding: "5px"}}>
+      <img
         src={
           "https://starwars-visualguide.com/assets/img/planets/" +
           params.theid +
-          ".jpg"
-        }/>
-       <div className="card-body">
-         <h1 className="mx-4 mb-2 card-title text-center">{detailPlanet?.properties?.name}</h1>
-         <p className="mx-4 card-text text-center">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora inci dunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+          ".jpg"}
+      className="img-fluid rounded-start" style={{width: "90%"}} />
       </div>
-      <h1 className="display-4">
-        {/* This will show the demo element: {store.demo[params.theid].title} */}
-      </h1>
-      <div>
-        {/* <h3>{detailCharacter?.properties?.name}</h3> */}
-       
-        
-      </div> 
-      
-      <hr className="my-4" />
-      <div className="container strong text-danger">
-        <p>Name:{detailPlanet?.properties?.name}</p>
-        <p>Diameter:{detailPlanet?.properties?.diameter}</p>
-        <p>Rotation period:{detailPlanet?.properties?.rotation_period}</p>
-        <p>Orbital period:{detailPlanet?.properties?.orbital_period}</p>
-        <p>Gravity:{detailPlanet?.properties?.gravity}</p>
-        <p>Population:{detailPlanet?.properties?.population}</p>
-        <p>Climate:{detailPlanet?.properties?.climate}</p>
-
-      </div>
+    <div className="col-md-6">
+    <div className="card-body">
+      <p className="card-text text-warning">Name: {store.detailPlanet?.properties?.name}</p>
+      <p className="card-text text-warning">Diameter: {store.detailPlanet?.properties?.diameter}</p>
+      <p className="card-text text-warning">Rotation period:{store.detailPlanet?.properties?.rotation_period}</p>
+      <p className="card-text text-warning">Orbital period:{store.detailPlanet?.properties?.orbital_period}</p>
+      <p className="card-text text-warning">Gravity:{store.detailPlanet?.properties?.gravity}</p>
+      <p className="card-text text-warning">Population:{store.detailPlanet?.properties?.population}</p>
+                
+    </div>
+    </div>
+    </div>
+</div>
 <div>
       <Link to="/">
-        <span className="btn btn-primary btn-lg" href="#" role="button">
+        <span className="btn btn-warning btn-lg" href="#" role="button">
           Back home
         </span>
       </Link>

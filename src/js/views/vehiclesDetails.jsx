@@ -6,66 +6,47 @@ import { Context } from "../store/appContext";
 export const VehicleDetail = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  const [detailVehicle, setDetailVehicle] = useState({});
+  
 
-  function getDetailVehicle() {
-    fetch("https://www.swapi.tech/api/vehicles/" + params.theid)
-      .then((response) => response.json())
-
-      .then((data) => setDetailVehicle(data.result));
-  }
+ 
 
   useEffect(() => {
-    getDetailVehicle();
-  }, []);
+    actions.getDetailVehicle(params.theid)  }, []);
 
   return (
-    <div className="jumbotron d-flex flex-row">
+    <div className="bg-dark">
+    <br />
+    
+<h1 className="text-warning">{store.detailVehicle?.properties?.name}</h1>
+<div className="card mb-3" style={{width: "720px", margin: "20px"}}>
+    <div className="row g-0">
+      <div className="col-md-4 align-self-center" style={{padding: "5px"}}>
       <img
         src={
           "https://starwars-visualguide.com/assets/img/vehicles/" +
           params.theid +
-          ".jpg"
-        }
-      />
-      <div className="card-body">
-        <h1 className="mx-4 mb-2 card-title text-center">
-          {detailVehicle?.properties?.name}
-        </h1>
-        <p className="mx-4 card-text text-center">
-          Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit,
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-          eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est,
-          qui dolorem ipsum, quia dolor sit amet, consectetur, adipisci velit,
-          sed quia non numquam eius modi tempora inci dunt, ut labore et dolore
-          magnam aliquam quaerat voluptatem.
-        </p>
+          ".jpg"}
+      className="img-fluid rounded-start" style={{width: "90%"}} />
       </div>
-      <h1 className="display-4">
-        {/* This will show the demo element: {store.demo[params.theid].title} */}
-      </h1>
-      <div>{/* <h3>{detailCharacter?.properties?.name}</h3> */}</div>
-
-      <hr className="my-4" />
-      <div className="container strong text-danger">
-        <p>Name: {detailVehicle?.properties?.name}</p>
-        <p>Model: {detailVehicle?.properties?.model}</p>
-        <p>Vehicle class: {detailVehicle?.properties?.vehicle_class}</p>
-        <p>Manufacturer: {detailVehicle?.properties?.manufacturer}</p>
-        <p>Cost in Credits: {detailVehicle?.properties?.cost_in_credits}</p>
-        <p>Passengers: {detailVehicle?.properties?.passengers}</p>
-        <p>Consumables: {detailVehicle?.properties?.consumables}</p>
-      </div>
-      <div>
+    <div className="col-md-6">
+    <div className="card-body">
+      <p className="card-text text-warning">Name: {store.detailVehicle?.properties?.name}</p>
+      <p className="card-text text-warning">Model: {store.detailVehicle?.properties?.model}</p>
+      <p className="card-text text-warning">Vehicle class: {store.detailVehicle?.properties?.vehicle_class}</p>
+      <p className="card-text text-warning">Manufacturer: {store.detailVehicle?.properties?.manufacturer}</p>
+      <p className="card-text text-warning">Cost in Credits: {store.detailVehicle?.properties?.cost_in_credits}</p>
+      <p className="card-text text-warning">Passengers: {store.detailVehicle?.properties?.passengers}</p>
+                
+    </div>
+    </div>
+    </div>
+</div>
         <Link to="/">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
+          <span className="btn btn-warning btn-lg" href="#" role="button">
             Back home
           </span>
         </Link>
       </div>
-    </div>
+    
   );
 };

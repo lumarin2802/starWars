@@ -5,21 +5,15 @@ const getState = ({
 }) => {
     return {
         store: {
-            demo: [{
-                    title: "FIRST",
-                    background: "white",
-                    initial: "white"
-                },
-                {
-                    title: "SECOND",
-                    background: "white",
-                    initial: "white"
-                }
-            ],
+
             characters: [],
             planets: [],
             vehicles: [],
             favorites: [],
+            detailCharacter: {},
+            detailPlanet: {},
+            detailVehicle: {},
+
 
         },
         actions: {
@@ -27,6 +21,33 @@ const getState = ({
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
             },
+
+            getDetailCharacter: (id) => {
+                fetch("https://www.swapi.tech/api/people/" + id)
+                    .then((response) => response.json())
+                    .then((data) => setStore({
+                        detailCharacter: data.result
+                    }));
+            },
+
+            getDetailPlanet: (id) => {
+                fetch("https://www.swapi.tech/api/planets/" + id)
+                    .then((response) => response.json())
+
+                    .then((data) => setStore({
+                        detailPlanet: data.result
+                    }));
+            },
+
+            getDetailVehicle: (id) => {
+                fetch("https://www.swapi.tech/api/vehicles/" + id)
+                    .then((response) => response.json())
+
+                    .then((data) => setStore({
+                        detailVehicle: data.result
+                    }));
+            },
+
             charactersFetch: () => {
                 /**
                 	fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -56,7 +77,7 @@ const getState = ({
                     }));
             },
 
-            addFavorite: () => {
+            addFavorites: () => {
                 console.log("funciona");
             },
             changeColor: (index, color) => {

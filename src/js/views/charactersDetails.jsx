@@ -7,18 +7,13 @@ export const CharacterDetail = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   //console.log(store.demo);
-  const [detailCharacter, setDetailCharacter] = useState({});
   
 
-  function getDetailCharacter() {
-    fetch("https://www.swapi.tech/api/people/" + params.theid)
-      .then((response) => response.json())
-      .then((data) => setDetailCharacter(data.result));   
-  }
+  
 
  
   useEffect(() => {
-    getDetailCharacter()
+    actions.getDetailCharacter(params.theid)
     
 
   }, []);
@@ -27,8 +22,8 @@ export const CharacterDetail = (props) => {
     <div className="bg-dark">
     <br />
     
-<h1 className="text-warning">{detailCharacter?.properties?.name}</h1>
-<div className="card mb-3" style={{width: "720px", margin: "20px"}}>
+<h1 className="text-warning">{store.detailCharacter?.properties?.name}</h1>
+<div className="card mb-3 border-warning border rounded" style={{width: "720px", margin: "20px"}}>
     <div className="row g-0">
       <div className="col-md-4 align-self-center" style={{padding: "5px"}}>
       <img
@@ -40,12 +35,12 @@ export const CharacterDetail = (props) => {
       </div>
     <div className="col-md-6">
     <div className="card-body">
-      <p className="card-text text-warning">Name: {detailCharacter?.properties?.name}</p>
-      <p className="card-text text-warning">Birth year: {detailCharacter?.properties?.birth_year}</p>
-      <p className="card-text text-warning">Gender: {detailCharacter?.properties?.gender}</p>
-      <p className="card-text text-warning">Height: {detailCharacter?.properties?.height}</p>
-      <p className="card-text text-warning">Skin color: {detailCharacter?.properties?.skin_color}</p>
-      <p className="card-text text-warning">Eye color: {detailCharacter?.properties?.eye_color}</p>
+      <p className="card-text text-warning">Name: {store.detailCharacter?.properties?.name}</p>
+      <p className="card-text text-warning">Birth year: {store.detailCharacter?.properties?.birth_year}</p>
+      <p className="card-text text-warning">Gender: {store.detailCharacter?.properties?.gender}</p>
+      <p className="card-text text-warning">Height: {store.detailCharacter?.properties?.height}</p>
+      <p className="card-text text-warning">Skin color: {store.detailCharacter?.properties?.skin_color}</p>
+      <p className="card-text text-warning">Eye color: {store.detailCharacter?.properties?.eye_color}</p>
                 
     </div>
     </div>

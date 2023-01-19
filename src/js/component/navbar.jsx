@@ -1,38 +1,37 @@
-import React, {useContext} from "react";
-import { Context } from "../store/appContext";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import starImage from "../../img/starwars.png";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-  const {store}=useContext(Context);
-  console.log(store.favorites);
+  const { store, actions } = useContext(Context);
 
-
-	return (
-		
-			<nav className="navbar navbar-dark bg-black p-2">
-  <Link to="/">
-  <span className="navbar-brand mb-0 h1">
-    <img src={starImage}  width="80" height="50"/></span>
+  return (
+    <nav className="navbar navbar-dark bg-black p-2">
+      <div className = "container-fluid" ></div>
+      <Link to="/">
+        <span className="navbar-brand mb-0 h1">
+          <img src={starImage} width="80" height="50" />
+        </span>
       </Link>
-        {/* <button className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Favorites
-          </a>
-          <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="#">Action</Link></li>
-            <li><Link className="dropdown-item" to="#">Another action</Link></li>
-            <li><Link className="dropdown-item" to="#">Something else here</Link></li>
-          </ul>
-        </button> */}
-        <div className="ml-auto">
+
+      <div className="ml-auto">
         <Link to="/demo">
-					<button className="btn btn-outline-warning">Favorites</button>
-				</Link>
-        </div>
-   
-</nav>
-	
-		
-	);
+          <button className="btn btn-outline-warning">Favorites</button>
+        </Link>
+        <ul className="dropdown-menu">
+          {store.favorites.map((item, id) => (
+            <li key={id}>
+              <a
+                className="dropdown-item"
+                onClick={() => actions.addFavorites()}
+              >
+                {item} 
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
 };
