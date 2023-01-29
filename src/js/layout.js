@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop.jsx";
-
+// import { Single } from "./views/single";
 import { Home } from "./views/home.jsx";
 import { Demo } from "./views/demo.jsx";
 import { CharacterDetail } from "./views/charactersDetails.jsx";

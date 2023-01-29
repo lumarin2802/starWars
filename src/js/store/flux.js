@@ -5,11 +5,10 @@ const getState = ({
 }) => {
     return {
         store: {
-
+            likesGuardados: [],
             characters: [],
             planets: [],
             vehicles: [],
-            favorites: [],
             detailCharacter: {},
             detailPlanet: {},
             detailVehicle: {},
@@ -77,9 +76,24 @@ const getState = ({
                     }));
             },
 
-            addFavorites: () => {
-                console.log("funciona");
+            giveMeLikes: likes => {
+                const store = getStore();
+                setStore({
+                    likesGuardados: [
+                        ...store.likesGuardados,
+                        likes
+                    ]
+                });
             },
+
+            dotLikeItAnymore: like => {
+                const store = getStore();
+                setStore({
+                    likesGuardados: store.likesGuardados.filter((elemento) => elemento !== like)
+                })
+                console.log("hola")
+            },
+
             changeColor: (index, color) => {
                 //get the store
                 const store = getStore();
