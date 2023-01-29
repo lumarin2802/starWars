@@ -17,7 +17,7 @@ export const Planets  = ({name, id}) => {
     </div>
     <div className="footer mt-5">
     <Link to={"/planetsDetail/"+id} className="btn btn-outline-warning">Learn more!</Link>
-    <button className="btn btn-outline-warning float-end" onClick={() => store.likesGuardados.indexOf({name}) !== -1 ? alert("Oh no, elige otro personaje, este ya sabemos que te gusta") : actions.giveMeLikes({name})}>💛</button>    
+    <button className="btn btn-outline-warning float-end">💛</button>    
     
 </div>
 </div>

@@ -5,7 +5,7 @@ const getState = ({
 }) => {
     return {
         store: {
-            likesGuardados: [],
+            // likesGuardados: [],
             characters: [],
             planets: [],
             vehicles: [],
@@ -76,23 +76,23 @@ const getState = ({
                     }));
             },
 
-            giveMeLikes: likes => {
-                const store = getStore();
-                setStore({
-                    likesGuardados: [
-                        ...store.likesGuardados,
-                        likes
-                    ]
-                });
-            },
+            // giveMeLikes: likes => {
+            //     const store = getStore();
+            //     setStore({
+            //         likesGuardados: [
+            //             ...store.likesGuardados,
+            //             likes
+            //         ]
+            //     });
+            // },
 
-            dotLikeItAnymore: like => {
-                const store = getStore();
-                setStore({
-                    likesGuardados: store.likesGuardados.filter((elemento) => elemento !== like)
-                })
-                console.log("hola")
-            },
+            // dotLikeItAnymore: like => {
+            //     const store = getStore();
+            //     setStore({
+            //         likesGuardados: store.likesGuardados.filter((elemento) => elemento !== like)
+            //     })
+            //     console.log("hola")
+            // },
 
             changeColor: (index, color) => {
                 //get the store
