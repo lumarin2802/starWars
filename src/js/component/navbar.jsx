@@ -15,22 +15,13 @@ export const Navbar = () => {
         </span>
       </Link>
 
-      <div className="ml-auto">
-        <Link to="/demo">
-          <button className="btn btn-outline-warning">Favorites</button>
-        </Link>
-        <ul className="dropdown-menu">
-          {store.favorites.map((item, id) => (
-            <li key={id}>
-              <a
-                className="dropdown-item"
-                onClick={() => actions.addFavorites()}
-              >
-                {item} 
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className="dropdown d-flex float-end" >
+  <button className="btn btn-lg btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Favorites 
+  </button>
+  <ul className="dropdown-menu" >
+ {store.favorites.map((item, id)=> <li key={id} className="dropdown-item">{item.name} <button type="button" className="btn border-0 float-end"  onClick={() => actions.deleteFavorites(item)}><i className="fa fa-trash"></i></button></li>)}
+  </ul>
+</div>
     </nav>
   )}

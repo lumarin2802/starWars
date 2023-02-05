@@ -5,7 +5,7 @@ const getState = ({
 }) => {
     return {
         store: {
-            // likesGuardados: [],
+            favorites: [],
             characters: [],
             planets: [],
             vehicles: [],
@@ -76,24 +76,22 @@ const getState = ({
                     }));
             },
 
-            // giveMeLikes: likes => {
-            //     const store = getStore();
-            //     setStore({
-            //         likesGuardados: [
-            //             ...store.likesGuardados,
-            //             likes
-            //         ]
-            //     });
-            // },
-
-            // dotLikeItAnymore: like => {
-            //     const store = getStore();
-            //     setStore({
-            //         likesGuardados: store.likesGuardados.filter((elemento) => elemento !== like)
-            //     })
-            //     console.log("hola")
-            // },
-
+            addFavorites: (item) =>{
+                const store = getStore();
+                if (store.favorites.includes(item)) {
+                    getActions().deleteFavorites(item)
+            }else{
+                setStore({
+                    favorites:[...store.favorites,item]
+                })
+            }
+        },
+        deleteFavorites: (itemFavorite) => {
+            const store = getStore();
+            setStore({
+                favorites: store.favorites.filter((item)=>item!==itemFavorite)
+            })
+        },
             changeColor: (index, color) => {
                 //get the store
                 const store = getStore();
